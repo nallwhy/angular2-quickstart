@@ -1,7 +1,20 @@
 import { Component } from '@angular/core';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
+import { JoinsComponent } from './joins.component';
 @Component({
   selector: 'my-app',
-  template: '<h1>My First Angular 2 App</h1>'
+  templateUrl: 'app/app.component.html',
+  directives: [ ROUTER_DIRECTIVES ],
+  providers: [
+    ROUTER_PROVIDERS,
+  ]
 })
+@RouteConfig([
+  {
+    path: '/joins',
+    name: 'Joins',
+    component: JoinsComponent
+  }
+])
 export class AppComponent { }
