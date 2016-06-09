@@ -1,8 +1,60 @@
 <h3>Joins</h3>
-<div *ngFor="let join of joins">
-  <div>
-    {{ diagonostic(join) }}
-    <!-- <label>id: </label>
-    {{join.id}} -->
-  </div>
+<div>
+  <button [ngClass]="{active: joinType == 0}" (click)="changeJoinType(0)">All</button>
+  <button [ngClass]="{active: joinType == 1}" (click)="changeJoinType(1)">Not paid</button>
+  <button [ngClass]="{active: joinType == 2}" (click)="changeJoinType(2)">Refund requested</button>
+</div>
+<div>
+  <input type="text" placeholder="Holder" [ngFormControl]="holderSearch">
+</div>
+<div class="join" *ngFor="let join of (filteredJoins || joins)">
+  <ul>
+    <li>
+      <label>id: </label>
+      {{join.id}}  
+    </li>
+    <li>
+      <label>guest: </label>
+      {{ join.guest.meta.name }}
+    </li>
+    <li>
+      <label>meeting: </label>
+      {{ join.meeting.name }}
+    </li>
+    <li>
+      <label>date: </label>
+      {{ join.sub_meeting.date.toUTCString() }}
+    </li>
+    <li>
+      <label>paid: </label>
+      {{ join.paid }}
+    </li>
+    <li>
+      <label>refunded: </label>
+      {{ join.refunded }}
+    </li>
+    <li>
+      <label>refund_requested: </label>
+      {{ join.refund_requested }}
+    </li>
+    <li>
+      <label>payment info: </label>
+      <ul>
+        <li>
+          <label>type: </label>
+          {{ join.payment_info.type }}
+        </li>
+        <li>
+          <label>amount: </label>
+          {{ join.payment_info.amount + ' ' + join.payment_info.currency}}
+        </li>
+        <li>
+          <label>holder: </label>
+          {{ join.payment_info.info.holder }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <button [disabled]="join.paid" (click)="confirmPaid(join)">Paid</button>
+  <button [disabled]="!join.refund_requested || join.refunded" (click)="confirmRefunded(join)">Refunded</button>
 </div>

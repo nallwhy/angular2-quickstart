@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
+    "lite": "lite-server -c bsconfig.json",
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
@@ -28,7 +28,8 @@
     "zone.js": "^0.6.12",
 
     "angular2-in-memory-web-api": "0.0.7",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "underscore": "1.8.3"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",

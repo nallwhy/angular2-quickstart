@@ -35,5 +35,6 @@ app/**/*.js
 app/**/*.map
 node_modules
 bower_components
+.log
 
 #jspm_packages
