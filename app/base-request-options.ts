@@ -10,7 +10,7 @@ export class CultripBaseRequestOptions extends BaseRequestOptions {
   // }
   merge(options?: RequestOptionsArgs): RequestOptions {
     options.search = options.search || new URLSearchParams();
-    options.search.set("api_token", "8vIqGmapUnr1XlgcXu5qOQ");
+    (options.search as URLSearchParams).set("api_token", "8vIqGmapUnr1XlgcXu5qOQ");
     // options.search = new URLSearchParams(`api_token=${config.token}`); // TODO: app_config injection
 
     options.headers = options.headers || new Headers();

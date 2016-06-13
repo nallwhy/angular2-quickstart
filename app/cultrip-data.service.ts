@@ -16,7 +16,7 @@ export class CultripDataService {
     @Inject(APP_CONFIG) private config: Config
   ) { }
 
-  loadJoins(query: Object = {}): Observable<Join[]> {
+  loadJoins(query): Observable<Join[]> {
     // return Promise.resolve(JOINS);
 
     // query = {
@@ -28,7 +28,7 @@ export class CultripDataService {
     // }
 
     const params = new URLSearchParams();
-    _.each(query, (value, key, object) => { params.set(key, value); });
+    _.each(query, (value: string, key: string, object) => { params.set(key, value); });
 
     const joins$ = this.http.get(this.getApiEndPoint("/joins"), { search: params })
       .map(this.extractData)
