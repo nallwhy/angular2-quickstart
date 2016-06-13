@@ -1,7 +1,5 @@
 <html>
   <head>
-    <base href="/">
-
     <title>Cultrip Admin</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width", initial-scale="1">
@@ -20,6 +18,9 @@
     <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
+
+    <!-- provide(APP_BASE_HREF, { useValue: '/' }) is the better way -->
+    <!-- <base href="/"> -->
   </head>
 
   <!-- 3. Didplay the application -->
