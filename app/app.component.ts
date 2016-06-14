@@ -6,7 +6,6 @@ import { CultripBaseRequestOptions } from './base-request-options'
 import { JoinsComponent } from './joins.component';
 import { CultripDataService } from './cultrip-data.service';
 
-import { UserItem } from './items/user-item'
 @Component({
   selector: 'my-app',
   templateUrl: 'app/app.component.html',

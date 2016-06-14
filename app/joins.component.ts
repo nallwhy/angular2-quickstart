@@ -6,7 +6,6 @@ import { Subject } from 'rxjs/Subject';
 import { CultripDataService } from './cultrip-data.service';
 
 import { Join } from './models';
-import { UserItem } from './items/user-item'
 
 enum JOIN_TYPE { ALL, NOT_PAID, REFUND_REQUESTED };
 
@@ -14,7 +13,6 @@ enum JOIN_TYPE { ALL, NOT_PAID, REFUND_REQUESTED };
   selector: 'joins',
   templateUrl: 'app/joins.component.html',
   styleUrls: ['app/joins.component.css'],
-  directives: [ UserItem ]
 })
 export class JoinsComponent implements OnInit {
 
