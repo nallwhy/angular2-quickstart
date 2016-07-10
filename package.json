@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "tsc && npm run lint && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "start-heroku": "tsc && npm run http-server",
+    "start-heroku": "tsc && concurrently \"npm run tsc:w\" \"npm run http-server\" ",
     "lite": "lite-server",
     "http-server": "http-server",
     "lint": "tslint \"app/**/*.ts\"",
